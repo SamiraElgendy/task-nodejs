@@ -19,13 +19,6 @@ let check = []
 let accacu
 const formSubmit = function(e){
     e.preventDefault()
-    culc: while (true) {
-        accacu = Math.floor(Math.random() * 10);
-        if (check[accacu] == true) {
-            continue culc
-        } 
-        break
-    }
     let task = {id:Date.now(), createdAt: new Date()} 
     cusHeads.forEach(head => task[head]= this.elements[head].value )
     const tasks = readDataFromStorage("tasks")
