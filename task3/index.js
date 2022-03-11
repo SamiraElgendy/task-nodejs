@@ -1,4 +1,4 @@
-const user = require("./controllers/user")
+const customer = require("./controllers/user")
 const yargs = require("yargs")
 yargs.command({
     command:"addcustomer",
