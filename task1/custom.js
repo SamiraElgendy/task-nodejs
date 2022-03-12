@@ -1,6 +1,6 @@
 const addUser = document.querySelector("#addUser")   
 const tableBody = document.querySelector("#tableBody")
-const cusHeads = ['name', 'accnum','intialbalance','address']
+const cusHeads = ['name', 'accnum', 'intialbalance','address']
 const readDataFromStorage= (storageKey)=>{
     let data
     try{
@@ -19,7 +19,7 @@ let check = []
 let accacu
 const formSubmit = function(e){
     e.preventDefault()
-    let task = {intialbalance:Date.now(), createdAt: new Date()} 
+    let task = {id:Date.now(), createdAt: new Date()} 
     cusHeads.forEach(head => task[head]= this.elements[head].value )
     const tasks = readDataFromStorage("tasks")
     tasks.push(task)
