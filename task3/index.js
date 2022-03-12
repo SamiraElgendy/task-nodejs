@@ -60,7 +60,7 @@ yargs.command({
     handler:function(argv){
         if(argv.op!="withdraw"&& argv.op!="add") return console.log("invalid operation")
         if(argv.op=="withdraw"&&argv.remainigBalance>=opvalue) return console.log("invalid operation")
-        else return customer.showAll(argv.customerId,argv.intialBalance+argv.op)
+        else return customer.addOP(argv.customerId,argv.intialBalance ,argv.addOP)
     }
 })
 yargs.command({

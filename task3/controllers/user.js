@@ -16,6 +16,23 @@ const addcustomer = (customerData) =>{
         console.log(chalk.red(e.message))
     }
 }
+const addOP=(type ,value,accNum)=>{
+    const customers = dealWithJson.readData()
+    const customer=customers.find(u=>u.accNum==accNum)
+        console.log(customer)
+        if(type=="withdraw"){
+           if(customer.intialBalance<value){
+               console.log("dont enough money")
+           }else{
+               customer.intialBalance -=value
+           }
+        }else if (type=="add"){
+            customer.intialBalance=customer.intialBalance+=value
+            console.log("find money")
+        }
+
+    }
+
 const showAll = () => {
     try{
         const customers = dealWithJson.readData()
@@ -53,3 +70,4 @@ const editcustomer = (customerId, newData) => {
     console.log("data edited")
 }
 module.exports = { addcustomer, showAll, showSingle, delcustomer, editcustomer }
+module.exports={addcustomer ,addOP}
