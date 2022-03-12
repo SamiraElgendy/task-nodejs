@@ -1,6 +1,6 @@
 const addUser = document.querySelector("#addUser")   
 const tableBody = document.querySelector("#tableBody")
-const cusHeads = ['name', 'accnum','address']
+const cusHeads = ['name', 'accnum','intialbalance','address']
 const readDataFromStorage= (storageKey)=>{
     let data
     try{
