@@ -15,6 +15,6 @@ apiGetter("https://newsapi.org/v2/top-headlines?country=eg&apiKey=a891eee7e84c41
 const wrapper = document.querySelector('#wrapper')
 const divWrapper = createMyOwnElement(wrapper, 'div', "row", null)
 articles.forEach((element =>{document.querySelector(".card").innerHTML+
-`<div class //='col-md-3 my-2'><img src="${element.urlToImage}" class="card-img-top" alt="..."><div class="card-body"><p class="card-text">${element.content}</p></div>`
+`<img src="${element.urlToImage}" class="card-img-top" alt="..."><div class="card-body"><p class="card-text">${element.content}</p></div>`
 })
 )
