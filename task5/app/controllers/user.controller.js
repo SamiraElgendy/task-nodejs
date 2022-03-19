@@ -40,22 +40,22 @@ const addLogic = (req,res)=>{
         )
     })
 }
-/*const addop=(req,res)=>{
+const addop=(req,res)=>{
     const accNum=req.params.accNum
-    let allCustomers=deal.readData()
-    if(req.query.addop){
-        let index=allCustomers.findIndex(u=>u.accNum=accNum)
-        if(req.query.optype=="withdraw"){
-            if(Number(allCustomers[index].remainigBalance)< req.query.opvalue){
-                alert("no enough money")
-            }else allCustomers[index].remainigBalance=Number(allCustomers[index].remainigBalance)-Number(req.query.opvalue)
-       } } else if(req.query.optype=="add"){
-            allCustomers[index].remainigBalance= Number(allCustomers[index].remainigBalance)+Number(req.query.opvalue)
-        }  
-        deal.writeData(allCustomers)
-    res.render("addop", {
-        pageTitle:"Add New Operation",customer
+    db((err, connection)=>{
+        connection.collection("customer").findOne( { _accum : new ObjectId(accNum) } , 
+        (e, result)=>{ if(req.body.addop){
+            if(req.body.optype=="withdraw"){
+                if(Number(allCustomers[index].remainigBalance)< req.query.opvalue){
+                    alert("no enough money")
+                }else allCustomers[index].remainigBalance=Number(allCustomers[index].remainigBalance)-Number(req.body.opvalue)
+           } } else if(req.body.optype=="add"){
+                allCustomers[index].remainigBalance= Number(allCustomers[index].remainigBalance)+Number(req.body.opvalue)
+            }  
+        res.render("addop", {
+            pageTitle:"Add New Operation",result
+        })
+        })
     })
-}*/
-
-module.exports = { showAll, addCustomer,show,addLogic}
+}
+module.exports = { showAll, addCustomer,show,addLogic,addop}
